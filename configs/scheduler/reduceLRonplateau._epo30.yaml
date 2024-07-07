@@ -1,0 +1,4 @@
+name: "ReduceLROnPlateau"
+config:
+  epochs: 30
+  patience: 5

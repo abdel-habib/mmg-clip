@@ -1,0 +1,7 @@
+name: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
+
+config:
+  tokenizer_name: microsoft/BiomedNLP-BiomedBERT-base-uncased-abstract
+  sequence_length: 256
+  
+  

@@ -1,0 +1,4 @@
+name: MMGCLIP Loss
+
+config:
+  loss_name: "MMGCLIPLoss"

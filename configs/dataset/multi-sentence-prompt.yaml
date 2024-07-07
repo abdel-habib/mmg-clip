@@ -1,0 +1,27 @@
+name: ImageLabelDataset
+
+config:
+  enums_class: "" # not required for sentence prompt training
+  search_col: "" # not required for sentence prompt training
+  generate_label_prompt_sentence: False
+  generate_label_prompt_report: True
+  
+  base_dataset_path: /storage/Features/features/png_archive/2D_100micron/0/
+  annotated_dataset_path: data/02_data_T_regions
+  lists_dataset_path: data/02_data_lists/data/lists
+
+eval:
+  enum_classes: ["BenignMalignantDatasetLabels", "MassMarginLabels", "MassShapeLabels", "HasArchDistortion", "HasMassLabels", "HasCalcification"] # one or all of {BenignMalignantDatasetLabels, MassMarginLabels, MassShapeLabels}
+  method: ["zeroshot_label_prompt"]
+
+  dataset:
+    name: ImageLabelDataset # for sentences, we evaluate with the label datasets
+
+split:  
+  train_split_ratio: 0.7
+  test_split_ratio: 0.5
+
+template:
+  prompt_template: ""
+  label: []
+  template_keys: []

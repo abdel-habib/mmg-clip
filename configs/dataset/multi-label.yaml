@@ -1,0 +1,27 @@
+name: ImageLabelDataset
+
+config:
+  enums_class: MassShapeLabels # one of {MassMarginLabels, MassShapeLabels} 
+  search_col: mass_shape # one of {mass_margin, mass_shape}
+  generate_label_prompt_sentence: False
+  generate_label_prompt_report: False
+
+  base_dataset_path: /storage/Features/features/png_archive/2D_100micron/0/
+  annotated_dataset_path: data/02_data_T_regions
+  lists_dataset_path: data/02_data_lists/data/lists
+
+eval:
+  dataset:
+    name: ImageLabelDataset # for sentences, we evaluate with the label datasets
+  
+  enum_classes: ["MassShapeLabels"] # one or all of {MassMarginLabels, MassShapeLabels}
+  method: ["ova", "zeroshot_label_prompt"]
+
+split:  
+  train_split_ratio: 0.7
+  test_split_ratio: 0.5
+
+template:
+  prompt_template: ""
+  label: []
+  template_keys: []

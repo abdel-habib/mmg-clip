@@ -1,0 +1,27 @@
+defaults:
+  - _self_
+  - experiments:
+    - binary
+  - dataset:
+    - binary-label
+  - tokenizer:
+    - bert_clinical
+  - dataloader:
+    - dataloader_32
+  - networks:
+    - clip_convnext_bert  
+
+checkpoints:
+  checkpoints_export_dir: ../mmgclip/models/image_encoders/clf_convnext_tiny
+  checkpoints_file_name: classifier_convnext_tiny_16bits_images.pt
+
+base:
+  patience: 5
+  seed: 42
+  features_export_dir: outputs/dataset
+  export_dir: ${hydra:run.dir}
+  results_export_dir: ${hydra:run.dir}/results
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}

@@ -1,0 +1,5 @@
+name: MultiLinearHead
+
+config:
+  projection_name: "MultiLinearHead"
+  output_projection_dimension: [768, 768, 512, 512] # (network)image_features_dimension > hidden_dim > hidden_dim > output_dim

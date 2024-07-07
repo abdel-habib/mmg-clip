@@ -1,0 +1,41 @@
+defaults:
+  - _self_
+  - optimizer:
+    - adamw
+  - scheduler:
+    - warmup0.1
+  - experiments:
+    - binary
+  - dataset:
+    - binary-label
+  - dataset/percentage:
+    - p100
+  - tokenizer:
+    - bert_clinical
+  - dataloader:
+    - dataloader_32
+  - loss:
+    - clip
+  - projection:
+    # - 2xMultiLinearHead512
+    - 1xLinear512
+  - networks:
+    - clip_convnext_bert.yaml    
+  - networks/dropout:
+    - dropout0.5
+    
+checkpoints:
+  checkpoints_export_dir: ${hydra:run.dir}/checkpoints
+  checkpoints_file_name: model.pth
+  
+base:
+  patience: 5
+  seed: 42
+  features_export_dir: outputs/dataset
+  export_dir: ${hydra:run.dir}
+  results_export_dir: ${hydra:run.dir}/results
+  tensorboard_export_dir: runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}

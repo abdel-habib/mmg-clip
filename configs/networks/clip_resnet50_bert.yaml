@@ -1,0 +1,10 @@
+logit_temperature: 0.07
+
+image_encoder:
+  name: ResNet50Encoder
+  convnext_tiny_clf_path: ''
+  image_features_dimension: 2048
+
+text_encoder:
+  name: BertEncoder
+

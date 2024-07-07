@@ -1,0 +1,4 @@
+name: CLIP Loss
+
+config:
+  loss_name: "CLIPLoss"

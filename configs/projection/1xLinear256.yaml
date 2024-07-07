@@ -1,0 +1,5 @@
+name: Linear Projection
+
+config:
+  projection_name: "LinearProjectionLayer"
+  output_projection_dimension: 256

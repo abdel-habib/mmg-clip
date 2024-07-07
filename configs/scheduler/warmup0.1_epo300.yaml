@@ -1,0 +1,4 @@
+name: "cosine"
+config:
+  warmup_epochs: 0.1
+  epochs: 300

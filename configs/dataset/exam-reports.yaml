@@ -1,0 +1,42 @@
+name: StudyReportDataset
+
+config:
+
+  # ------------------- for testing using the image-label dataset ------------- 
+  enums_class: "" # not required for sentence prompt training
+  search_col: "" # not required for sentence prompt training
+  generate_label_prompt_sentence: False
+  generate_label_prompt_report: True
+  annotated_dataset_path: data/02_data_T_regions
+  lists_dataset_path: data/02_data_lists/data/lists
+  # ------------------- for testing using the image-label dataset -------------
+  
+  base_dataset_path: /storage/Features/features/png_archive/2D_100micron/0/
+  raw_path: data/reports/Radboud02_ParadigmArchiveCorrespondance.csv
+  dicom_index_path: Radboud_dicom_index.csv
+  gt_path: data/reports/Radboud_findings_Case_gtr.csv
+  
+  # Training using reports only > gtr_prompt_generation: False & use_gtr_prompts_only: False
+  # Training using reports + prompts > gtr_prompt_generation: True & use_gtr_prompts_only: False
+  # Training using prompts only > gtr_prompt_generation: True & use_gtr_prompts_only: True (Note: gtr_prompt_generation must be true)
+  gtr_prompt_generation: True   
+  use_gtr_prompts_only: True
+  
+  post_translation_fileid: 2024-04-10/11-53-35 # change this to point to the correct directory after each pre/post processing
+  post_translation_dataset_path: data/${dataset.config.post_translation_fileid}/postprocessed_tr_dataset.csv
+  final_reports_dataset_path: data/${dataset.config.post_translation_fileid}/final_reports_dataset.csv
+  eliminated_reports_path: data/reports_lists/eliminate.csv
+
+  concatenate_features_method: "avgpool" # one of [maxpool, avgpool, stack]
+  n_images_per_study: 4 # min: 1, max: 4
+
+eval:
+  enum_classes: ["BenignMalignantDatasetLabels", "MassMarginLabels", "MassShapeLabels", "HasArchDistortion", "HasMassLabels", "HasCalcification"] # one or all of {BenignMalignantDatasetLabels, MassMarginLabels, MassShapeLabels, HasCalcification}
+  method: ["ova", "zeroshot_label_prompt"]
+  
+  dataset:
+    name: ImageLabelDataset # for sentences, we evaluate with the label datasets
+
+split:  
+  train_split_ratio: 0.7
+  test_split_ratio: 0.5

@@ -1,0 +1,27 @@
+train:
+  use_sampler: True
+  pin_memory: False
+  drop_last: True
+  num_workers: 8
+  prefetch_factor: 16
+  batch_size: 256
+  label_class_name: 'image_description'
+
+
+valid:
+  use_sampler: True
+  pin_memory: False
+  drop_last: True
+  num_workers: 8
+  prefetch_factor: 16
+  batch_size: 128
+  label_class_name: 'image_description'
+
+
+test:
+  use_sampler: True
+  pin_memory: False
+  drop_last: True
+  num_workers: 16
+  batch_size: 128
+  label_class_name: 'image_description'

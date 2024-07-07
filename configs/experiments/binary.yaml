@@ -1,0 +1,4 @@
+config:
+  experiment_name: classification
+
+  metrics: ['${dataset.config.enums_class}']

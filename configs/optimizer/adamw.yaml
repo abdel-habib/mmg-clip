@@ -1,0 +1,4 @@
+name: adamw
+config:
+  learning_rate: 5e-5
+  weight_decay: 1e-4

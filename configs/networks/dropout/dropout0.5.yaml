@@ -1,0 +1,4 @@
+name: dropout
+
+config:
+  dropout: 0.5

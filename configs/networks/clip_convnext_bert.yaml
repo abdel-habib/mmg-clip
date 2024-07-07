@@ -1,0 +1,10 @@
+logit_temperature: 0.07
+
+image_encoder:
+  name: ConvNextTiny
+  convnext_tiny_clf_path: mmgclip/models/image_encoders/clf_convnext_tiny/classifier_convnext_tiny_16bits_images.pt
+  image_features_dimension: 768
+
+text_encoder:
+  name: BertEncoder
+

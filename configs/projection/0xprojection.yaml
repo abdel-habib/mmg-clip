@@ -1,0 +1,4 @@
+name: Zero Projection
+
+config:
+  projection_name: "ZeroProjection"

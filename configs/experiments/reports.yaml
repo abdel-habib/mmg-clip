@@ -1,0 +1,4 @@
+config:
+  experiment_name: classification
+
+  metrics: ['BenignMalignantDatasetLabels', 'MassShapeLabels', 'birads']

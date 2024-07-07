@@ -1,0 +1,7 @@
+name: StanfordAIMI/RadBERT
+
+config:
+  tokenizer_name: StanfordAIMI/RadBERT
+  sequence_length: 256
+  
+  

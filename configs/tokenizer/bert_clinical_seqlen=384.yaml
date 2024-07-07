@@ -1,0 +1,7 @@
+name: emilyalsentzer/Bio_ClinicalBERT
+
+config:
+  tokenizer_name: emilyalsentzer/Bio_ClinicalBERT
+  sequence_length: 384
+  
+  

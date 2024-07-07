@@ -1,0 +1,4 @@
+name: 10percent
+
+config:
+  percentage: 0.10  

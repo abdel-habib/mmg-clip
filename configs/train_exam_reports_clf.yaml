@@ -1,0 +1,52 @@
+defaults:
+  - _self_
+  - optimizer:
+    - adamw
+  - scheduler:
+    - warmup0.1
+    # - warmup0.1_epo300
+  - experiments:
+    - reports
+  - dataset:
+    - exam-reports
+  - dataset/percentage:
+    - p100
+  - tokenizer:
+    - bert_clinical
+    # - Mistral7Bv0.1
+    # - BiomedBERT
+    # - biogpt
+    # - RadBERT
+    # - bert_clinical_seqlen=384
+    # - bert_clinical_seqlen=512
+  - dataloader:
+    # - dataloader_128
+    - dataloader_64
+    # - dataloader_sampler64
+    # - dataloader_32
+  - loss:
+    - clip
+    # - mmgclip
+  - projection:
+    # - 3xMultiLinearHead256
+    - 2xLinear512
+  - networks:
+    - clip_convnext_bert  
+  - networks/dropout:
+    - dropout0.2
+
+checkpoints:
+  checkpoints_export_dir: ${hydra:run.dir}/checkpoints
+  checkpoints_file_name: model.pth
+  
+base:
+  patience: 5 # 15
+  seed: 42
+  features_export_dir: outputs/dataset/reports_studies/${dataset.config.n_images_per_study}_${dataset.config.concatenate_features_method}
+  export_dir: ${hydra:run.dir}
+  results_export_dir: ${hydra:run.dir}/results
+  tensorboard_export_dir: runs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}

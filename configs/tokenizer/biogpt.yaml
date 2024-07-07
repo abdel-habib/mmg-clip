@@ -1,0 +1,7 @@
+name: microsoft/biogpt
+
+config:
+  tokenizer_name: microsoft/biogpt
+  sequence_length: 256
+  
+  
